@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Generator</title>
+</head>
+<body>
+    <div class="container">
+        <form class="form">
+            <input type="text" class="text-input" />
+            <button type="submit" class="btn">Generate QR</button>
+        </form>
+        <div class="qr-container"></div>
+    </div>
+
+    <script src="../js/qrcode.min.js"></script>
+    <script>
+        const userForm = document.querySelector('.form')
+        console.log(userForm);
+        document.querySelector('.qr-container').innerHTML = '';
+        userForm.addEventListener('submit', e => {
+            e.preventDefault();
+            console.log('ih');
+            let userInput = document.querySelector('.text-input').value;
+            console.log(userInput);
+            new QRCode(document.querySelector('.qr-container'), userInput)
+            userInput = ''
+        })
+    </script>
+</body>
+</html>
